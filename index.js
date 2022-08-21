@@ -18,9 +18,9 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get("/api/:date", function (req, res) {
+app.get("/api/:date?", function (req, res) {
   const dateParam = req.params.date;
-  const date = new Date(+dateParam || dateParam);
+  const date = new Date(+dateParam || dateParam || Date.now());
 
   if (!isNaN(date)) {
     res.json({
