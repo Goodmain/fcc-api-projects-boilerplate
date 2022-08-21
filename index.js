@@ -28,7 +28,7 @@ app.get("/api/:date", function (req, res) {
       utc: date.toUTCString()
     });
   } else {
-    res.sendStatus(422);
+    res.json({ error : 'Invalid Date' });
   }
 });
 
